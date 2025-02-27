@@ -157,17 +157,17 @@ const ProductDetail: React.FC = () => {
             )}
             <div className="product-detail__price">
               {product.price?.regular_amount && (
-                <span
+                <p
                   className="product-detail__price-regular"
                   style={{ textDecoration: 'line-through', marginRight: '8px' }}
                 >
                   {product.price.currency} {product.price.regular_amount}
-                </span>
+                </p>
               )}
-              <span className="product-detail__price-current">
+              <p className="product-detail__price-current">
                 {product.price?.currency} {product.price?.amount}
                 {product.price?.decimals ? `.${product.price.decimals}` : ''}
-              </span>
+              </p>
             </div>
             {product.installments?.quantity && product.installments?.amount && (
               <p className="product-detail__installments">

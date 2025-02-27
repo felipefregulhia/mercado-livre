@@ -87,8 +87,8 @@ $font-family: 'Proxima Nova', sans-serif;
 // Caixa de boas-vindas
 .welcome-box {
   position: absolute;
-  top: 50px;
-  right: 10px;
+  top: 70px;
+  right: 18%;
   background-color: #0073e6;
   color: white;
   padding: 15px;
@@ -169,6 +169,10 @@ $font-family: 'Proxima Nova', sans-serif;
     width: 100%;
     max-width: 1000px;
     margin-left: 16px;
+  }
+  .welcome-box {
+    position: absolute;
+    right: 1%;
   }
 }
 
