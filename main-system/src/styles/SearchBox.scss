@@ -1,0 +1,184 @@
+// Definições de Cores e Fontes
+$primary-color: #ffe600;
+$secondary-color: #ebebeb;
+$text-color: rgba(0, 0, 0, 0.55);
+$border-color: #ddd;
+$font-family: 'Proxima Nova', sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Header
+.header {
+  background-color: $primary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0;
+
+  &__container {
+    // Mantém largura fixa em telas grandes
+    width: 1200px;
+    height: 34px;
+
+    // Centraliza horizontalmente
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    height: 34px;
+  }
+
+  &__search-bar {
+    width: 1018px; // Mantém como no original
+    height: 34px;
+    display: flex;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid $border-color;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    align-items: center;
+  }
+
+  &__input {
+    flex-grow: 1;
+    border: none;
+    padding: 8px 12px;
+    font-size: 16px;
+    font-family: $font-family;
+    color: $text-color;
+    outline: none;
+  }
+
+  &__divider {
+    width: 1px;
+    height: 24px;
+    background-color: #ddd;
+  }
+
+  &__button {
+    width: 40px;
+    height: 34px;
+    background: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+
+    &:hover {
+      background: #f2f2f2;
+    }
+  }
+
+  &__icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+// Caixa de boas-vindas
+.welcome-box {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  background-color: #0073e6;
+  color: white;
+  padding: 15px;
+  width: 280px;
+  border-radius: 4px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.3s ease-in-out;
+  font-family: Arial, sans-serif;
+  z-index: 1000;
+
+  &__content {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    font-size: 14px;
+    font-weight: normal;
+  }
+
+  &__close {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: 22px;
+    border-width: 0 10px 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent #0073e6 transparent;
+  }
+}
+
+// Animação fadeIn
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 
+  MEDIA QUERIES
+  Só alteramos quando a tela fica menor que 1200px.
+*/
+
+@media (max-width: 1200px) {
+  .header__container {
+    width: 100%;
+    padding: 0 16px; // afastamento lateral
+    box-sizing: border-box;
+    justify-content: flex-start;
+  }
+
+  .header__search-bar {
+    width: 100%;
+    max-width: 1000px;
+    margin-left: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header__container {
+    height: auto;
+  }
+
+  .header__search-bar {
+    width: 100%;
+    max-width: 600px;
+  }
+}

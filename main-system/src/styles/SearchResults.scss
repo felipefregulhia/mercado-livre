@@ -1,0 +1,231 @@
+// Definições de Cores e Fontes
+$primary-color: #ffe600;
+$secondary-color: #ebebeb;
+$text-color: rgba(0, 0, 0, 0.9);
+$subtext-color: rgba(0, 0, 0, 0.55);
+$green-color: #00a650;
+$border-color: #ddd;
+$font-family: 'Proxima Nova', sans-serif;
+
+body {
+  background: rgb(245, 245, 245);
+  font-family: $font-family;
+}
+
+// Container principal
+.search-results {
+  background-color: rgb(235, 235, 235);
+  padding: 30px 0; // Espaçamento acima e abaixo do bloco de resultados
+
+  &__box {
+    width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.search-results__price {
+  margin-top: 25px; // Espaçamento acima do "Por ..."
+}
+
+// Loader – Ajustado para centralizar o conteúdo
+.search-results__loader-container {
+  width: 100%;
+  height: 100vh; // Ocupa a altura total da viewport para centralização vertical
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-results__loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid $border-color;
+  border-top-color: $primary-color;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Cada item de resultado
+.search-results__item {
+  display: flex;
+  padding: 12px 12px 32px 12px; // Espaçamento interno do item (top/right/bottom/left)
+  border-bottom: 1px solid $border-color;
+  gap: 24px;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  // Imagem do produto
+  &-image {
+    width: 259px;
+    height: 250px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  // Bloco de informações
+  &-info {
+    flex-grow: 1;
+  }
+
+  // Título do produto
+  &-title {
+    font-size: 20px;
+    font-weight: 300;
+    color: $text-color;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 30px;
+  }
+
+  // Preço do produto
+  &-price {
+    font-size: 24px;
+    font-weight: 400;
+    color: $text-color;
+  }
+
+  &-regular-price {
+    font-size: 12px;
+    font-weight: 400;
+    color: $subtext-color;
+    text-decoration: line-through;
+  }
+
+  // Texto de frete grátis
+  &-free-shipping {
+    font-size: 14px;
+    font-weight: 600;
+    color: $green-color;
+    margin-top: 25px;
+  }
+
+  &-condition {
+    font-size: 14px;
+    font-weight: 400;
+    color: $subtext-color;
+    margin-top: 25px;
+  }
+}
+
+.search-results__installments {
+  font-size: 14px;
+  font-weight: 400;
+  color: $green-color;
+}
+
+// Por Vendedor
+.search-results__seller {
+  font-size: 14px;
+  font-weight: 400;
+  color: $subtext-color;
+  margin-top: 6px;
+}
+
+// Paginação
+.search-results__pagination-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+  background: transparent;
+}
+
+.search-results__pagination {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+
+  &__item {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: $text-color;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    padding: 4px 0;
+
+    &:hover {
+      background: rgb(212, 222, 236);
+      transition: ease all 0.25s;
+    }
+
+    &--active {
+      border: 2px solid #3483fa;
+      font-weight: 700;
+      background: white;
+    }
+  }
+
+  &__prev,
+  &__next {
+    font-size: 14px;
+    font-weight: 600;
+    color: $text-color;
+    cursor: pointer;
+    margin: 2px 0;
+    display: flex;
+    align-items: center;
+    height: 28px;
+    padding: 4px 10px;
+    border-radius: 4px;
+
+    &:hover {
+      background: rgb(212, 222, 236);
+      transition: ease all 0.25s;
+    }
+  }
+}
+
+/* ===================== */
+/*       MEDIA           */
+/*      QUERIES          */
+/* ===================== */
+
+@media (max-width: 1200px) {
+  .search-results__box {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-results__item-image {
+    width: 140px;
+    height: 130px;
+  }
+
+  .search-results__item-title {
+    margin-top: 0px;
+  }
+
+  .search-results__price {
+    margin-top: 20px;
+  }
+
+  .search-results__item {
+    &-free-shipping {
+      margin-top: 15px;
+    }
+    &-condition {
+      margin-top: 15px;
+    }
+  }
+}

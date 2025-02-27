@@ -1,0 +1,16 @@
+{
+    "extends": "../tsconfig.json", // se estiver herdando do root
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "ESNext",
+        "jsx": "react-jsx", // ou "react-jsx" para o novo transform
+        "strict": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true
+    },
+    "include": [
+        "src"
+    ]
+}
